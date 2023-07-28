@@ -1,6 +1,8 @@
 package com.hackathon.wildfire.controller;
 
+import com.hackathon.wildfire.entity.Activity;
 import com.hackathon.wildfire.entity.User;
+import com.hackathon.wildfire.service.ActivityService;
 import com.hackathon.wildfire.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ public class Controller {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ActivityService activityService;
+
     @GetMapping("/hello")
     public String hello() {
         return "hello world!";
@@ -22,5 +27,10 @@ public class Controller {
     @GetMapping("/users")
     public List<User> getUsers() {
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/activities")
+    public List<Activity> getAllActivity() {
+        return activityService.getAllActivity();
     }
 }
