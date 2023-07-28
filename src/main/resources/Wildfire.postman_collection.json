@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "22e4750f-1535-4e4a-9fd9-56c6c74428fa",
+		"name": "Wildfire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28827493"
+	},
+	"item": [
+		{
+			"name": "Add activities",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-07-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-06-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-06-02T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-3\", \"amount\" : \"6300.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"gift-card-purchase\",\r\n    \"eventOccurredOn\": \"2022-03-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"voucher\": \"Amazon\", \"amount\" : \"1000.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"gift-card-purchase\",\r\n    \"eventOccurredOn\": \"2023-03-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"voucher\": \"Amazon\", \"amount\" : \"1000.00\"}\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/activity/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"activity",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activityPrediction",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "activities",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
