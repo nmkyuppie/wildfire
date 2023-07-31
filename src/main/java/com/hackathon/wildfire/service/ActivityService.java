@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,6 +28,7 @@ public class ActivityService {
 
     public List<ActivityResponse> activityPrediction(String userId) {
         List<ActivityResponse> activityResponses = new ArrayList<>();
+        AtomicLong counter = new AtomicLong(1L);
         List<Activity> activities = activityRepository.findAllByUserId(userId);
         // Group by events
         Map<String, List<Activity>> eventGroups = activities.stream().collect(Collectors.groupingBy(Activity::getEventId));
@@ -55,7 +57,13 @@ public class ActivityService {
                     .build();
             activityResponses.add(activityResponse);
         });
-        return activityResponses;
+        Collections.reverse(activityResponses);
+        return activityResponses.stream()
+                .sorted(Comparator.comparing(ActivityResponse::getNextHappeningOn))
+                .map(ac -> {
+                    ac.setRank(counter.getAndIncrement());
+                    return ac;
+                }).collect(Collectors.toList());
     }
 
     private Map<String, LocalDateTime> processIntervals(List<LocalDateTime> eventDates) {

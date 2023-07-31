@@ -26,20 +26,24 @@ public class ActivityUtils {
     }
 
     public static LocalDateTime calculateNextHappening(EventHappened eventHappened, LocalDateTime lastHappenedOn) {
-        if (eventHappened.equals(EventHappened.YEARLY)) {
-            return lastHappenedOn.plusYears(1);
-        } else if (eventHappened.equals(EventHappened.HALF_YEARLY)) {
-            return lastHappenedOn.plusMonths(6);
-        } else if (eventHappened.equals(EventHappened.QUARTERLY)) {
-            return lastHappenedOn.plusMonths(3);
-        } else if (eventHappened.equals(EventHappened.MONTHLY)) {
-            return lastHappenedOn.plusMonths(1);
-        } else if (eventHappened.equals(EventHappened.BI_MONTHLY)) {
-            return lastHappenedOn.plusDays(15);
-        } else if (eventHappened.equals(EventHappened.DAILY)) {
-            return lastHappenedOn.plusMonths(1);
-        } else {
-            return lastHappenedOn;
+        LocalDateTime nextHappeningOn = lastHappenedOn != null ? lastHappenedOn : LocalDateTime.now();
+        while (nextHappeningOn.isBefore(LocalDateTime.now())) {
+            if (eventHappened.equals(EventHappened.YEARLY)) {
+                nextHappeningOn = nextHappeningOn.plusYears(1);
+            } else if (eventHappened.equals(EventHappened.HALF_YEARLY)) {
+                nextHappeningOn = nextHappeningOn.plusMonths(6);
+            } else if (eventHappened.equals(EventHappened.QUARTERLY)) {
+                nextHappeningOn = nextHappeningOn.plusMonths(3);
+            } else if (eventHappened.equals(EventHappened.MONTHLY)) {
+                nextHappeningOn = nextHappeningOn.plusMonths(1);
+            } else if (eventHappened.equals(EventHappened.BI_MONTHLY)) {
+                nextHappeningOn = nextHappeningOn.plusDays(15);
+            } else if (eventHappened.equals(EventHappened.DAILY)) {
+                nextHappeningOn = nextHappeningOn.plusMonths(1);
+            } else {
+                return nextHappeningOn;
+            }
         }
+        return nextHappeningOn;
     }
 }
