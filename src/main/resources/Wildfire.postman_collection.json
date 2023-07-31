@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-07-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-06-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-06-02T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-3\", \"amount\" : \"6300.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"gift-card-purchase\",\r\n    \"eventOccurredOn\": \"2022-03-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"voucher\": \"Amazon\", \"amount\" : \"1000.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"gift-card-purchase\",\r\n    \"eventOccurredOn\": \"2023-03-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"voucher\": \"Amazon\", \"amount\" : \"1000.00\"}\r\n  }\r\n]",
+					"raw": "[\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-07-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-06-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-06-02T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-3\", \"amount\" : \"6300.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"bill-payment\",\r\n    \"eventOccurredOn\": \"2023-05-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"payeeId\": \"receiver-1\", \"amount\" : \"500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"gift-card-purchase\",\r\n    \"eventOccurredOn\": \"2022-03-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"voucher\": \"Amazon\", \"amount\" : \"1000.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"gift-card-purchase\",\r\n    \"eventOccurredOn\": \"2023-03-01T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"voucher\": \"Amazon\", \"amount\" : \"1000.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"card-payment\",\r\n    \"eventOccurredOn\": \"2023-03-03T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"cardNumber\": \"card-001\", \"amount\" : \"1500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"card-payment\",\r\n    \"eventOccurredOn\": \"2023-04-07T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"cardNumber\": \"card-001\", \"amount\" : \"1500.00\"}\r\n  },\r\n  {\r\n    \"appId\": \"payIt\",\r\n    \"userId\": \"payituser-1\",\r\n    \"eventId\": \"card-payment\",\r\n    \"eventOccurredOn\": \"2023-05-05T21:14:23.2207682\",\r\n    \"eventMetaData\": {\"cardNumber\": \"card-001\", \"amount\" : \"1500.00\"}\r\n  }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -47,7 +47,18 @@
 			"name": "activities",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/activities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"activities"
+					]
+				}
 			},
 			"response": []
 		}
